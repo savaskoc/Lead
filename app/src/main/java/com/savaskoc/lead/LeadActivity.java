@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
  * Created by savaskoc on 27/03/16.
  */
 public class LeadActivity extends AppCompatActivity {
-    private Lead lead;
+    protected Lead lead;
 
     @Override
     public void onBackPressed() {
