@@ -91,5 +91,17 @@ public class Lead {
     }
 
     static class ViewLookup extends HashMap<Class<? extends Serializable>, Class<? extends View>> {
+        public static class Builder {
+            ViewLookup lookup = new ViewLookup();
+
+            public ViewLookup.Builder addLookup(Class<? extends Serializable> keyClass, Class<? extends View> viewClass) {
+                lookup.put(keyClass, viewClass);
+                return this;
+            }
+
+            public ViewLookup build() {
+                return lookup;
+            }
+        }
     }
 }
