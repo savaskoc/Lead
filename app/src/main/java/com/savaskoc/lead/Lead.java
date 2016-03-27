@@ -27,9 +27,8 @@ public class Lead {
         setView();
     }
 
-    public <T extends Serializable> Lead(Activity activity, ViewLookup lookup, T state) {
+    public <T extends Serializable> Lead(Activity activity, ViewLookup lookup) {
         this(activity, lookup, new ArrayDeque<History>());
-        goState(state);
     }
 
     private Lead(Activity activity, ViewLookup lookup, ArrayDeque<History> history) {
