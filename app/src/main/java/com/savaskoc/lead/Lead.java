@@ -90,7 +90,7 @@ public class Lead {
         }
     }
 
-    static class ViewLookup extends HashMap<Class<? extends Serializable>, Class<? extends View>> {
+    public static class ViewLookup extends HashMap<Class<? extends Serializable>, Class<? extends View>> {
         public static class Builder {
             ViewLookup lookup = new ViewLookup();
 
