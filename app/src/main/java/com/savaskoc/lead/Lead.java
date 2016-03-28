@@ -9,6 +9,7 @@ import android.view.View;
 import java.io.Serializable;
 import java.util.ArrayDeque;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by savaskoc on 27/03/16.
@@ -23,7 +24,7 @@ public class Lead {
     private ViewLookup lookup;
 
     public Lead(Activity activity, Bundle savedInstanceState) {
-        this(activity, (ViewLookup) savedInstanceState.getSerializable(LOOKUP_KEY), (ArrayDeque<History>) savedInstanceState.getSerializable(HISTORY_KEY));
+        this(activity, new ViewLookup((HashMap) savedInstanceState.getSerializable(LOOKUP_KEY)), (ArrayDeque<History>) savedInstanceState.getSerializable(HISTORY_KEY));
         setView();
     }
 
@@ -90,6 +91,13 @@ public class Lead {
     }
 
     public static class ViewLookup extends HashMap<Class<? extends Serializable>, Class<? extends View>> {
+        public ViewLookup() {
+        }
+
+        ViewLookup(Map<? extends Class<? extends Serializable>, ? extends Class<? extends View>> map) {
+            super(map);
+        }
+
         public static class Builder {
             ViewLookup lookup = new ViewLookup();
 
