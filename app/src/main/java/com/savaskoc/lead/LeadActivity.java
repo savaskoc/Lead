@@ -29,6 +29,7 @@ public class LeadActivity extends AppCompatActivity {
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         lead = new Lead(this, savedInstanceState);
+        lead.restoreState();
     }
 
     public <T extends Serializable> T getCurrentState() {

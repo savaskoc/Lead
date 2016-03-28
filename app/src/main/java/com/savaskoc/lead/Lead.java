@@ -25,7 +25,6 @@ public class Lead {
 
     public Lead(Activity activity, Bundle savedInstanceState) {
         this(activity, new ViewLookup((HashMap) savedInstanceState.getSerializable(LOOKUP_KEY)), (ArrayDeque<History>) savedInstanceState.getSerializable(HISTORY_KEY));
-        setView();
     }
 
     public <T extends Serializable> Lead(Activity activity, ViewLookup lookup) {
@@ -48,6 +47,10 @@ public class Lead {
 
     public <T extends Serializable> T getCurrentState() {
         return (T) history.peekFirst().state;
+    }
+
+    public void restoreState() {
+        setView();
     }
 
     public <T extends Serializable> void goState(T state) {
